@@ -18,10 +18,7 @@ public class GitDev1 {
 		System.out.println(y.d);
 		
 
-		System.out.println(x.a+x.b+x.c);
-
-		System.out.println(x.a+y.a);
-		System.out.println(x.b+y.b);
+		
 
 	
 	
