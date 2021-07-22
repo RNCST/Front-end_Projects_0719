@@ -25,6 +25,11 @@ mongoose.connect(config.mongoURI, {
 
 app.get('/', (req,res) => res.send('Hello World!'))
 
+app.get('/api/hello', (req,res) => {
+
+  res.send("Hello")
+})
+
 app.post('/api/users/register', (req, res) => {
   //회원 가입할 떄 필요한 정보들을 client에서 가져오면
   //그것들을 DB에 넣어준다.
@@ -34,8 +39,8 @@ app.post('/api/users/register', (req, res) => {
       if(err) return res.json({ success: false, err})
       return res.status(200).json({
         success:true
-      })
     })
+  })
 })
 
 app.post("/api/users/login", (req, res) => {
@@ -101,6 +106,6 @@ app.get('/api/users/logout', auth, (req, res)  => {
 
 
 
-const port = 3000
+const port = 5000
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
