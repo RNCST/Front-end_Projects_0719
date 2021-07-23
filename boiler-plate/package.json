@@ -11,7 +11,7 @@
     "start": "node server/index.js",
     "devstart": "nodemon server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev" : "concurrently \"npm run devstart\" \"npm run start --prefix client\""
+    "dev": "concurrently \"npm run devstart\" \"npm run start --prefix client\""
   },
   "author": "rncst",
   "license": "ISC",
