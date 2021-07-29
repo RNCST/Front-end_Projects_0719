@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import {useDispatch} from 'react-redux';
 import { loginUser } from '../../../_actions/user_action';
-
+import { withRouter } from 'react-router-dom';
 
 function LoginPage(props) {
   // 이페이지 안에서 데이터 변화를 줘야하기떄문에 state를 줘야한다.
@@ -63,4 +63,4 @@ function LoginPage(props) {
   );
 }
 
-export default LoginPage;
+export default withRouter(LoginPage);
