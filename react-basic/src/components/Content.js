@@ -1,16 +1,45 @@
-import {Component} from "react";
+import { Component } from "react";
 
+export default class Contents extends Component {
+  render() {
+    console.log("Content render");
+    return (
+      <ul>
+        <li>
+          <a
+            href="/create"
+            onClick={function (e) {
+              e.preventDefault();
+              this.props.onChangeMode("create");
+            }.bind(this)}
+          >
+            create
+          </a>
+        </li>
 
-export default class Contents extends Component{
-    render(){
-        console.log('Content render');
-      return (
-        <article>
-        <h3>
-          {this.props.title}
-        </h3>
-        {this.props.desc}
-        </article>
-      )
-    }
+        <li>
+          <a
+            href="/update"
+            onClick={function (e) {
+              e.preventDefault();
+              this.props.onChangeMode("update");
+            }.bind(this)}
+          >
+            update
+          </a>
+        </li>
+
+        <li>
+          <input
+            type="button"
+            value="delete"
+            onClick={function (e) {
+              e.preventDefault();
+              this.props.onChangeMode("delete");
+            }.bind(this)}
+          ></input>
+        </li>
+      </ul>
+    );
   }
+}
