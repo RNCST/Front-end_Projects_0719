@@ -1,0 +1,3 @@
+[submodule "hero-selector-vanilla"]
+	path = hero-selector-vanilla
+	url = https://github.com/RNCST/hero-selector-vanilla
