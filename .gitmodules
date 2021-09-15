@@ -1,3 +1,9 @@
 [submodule "hero-selector-vanilla"]
 	path = hero-selector-vanilla
 	url = https://github.com/RNCST/hero-selector-vanilla
+[submodule "starbucks-vanilla"]
+	path = starbucks-vanilla
+	url = https://github.com/RNCST/starbucks-vanilla.git
+[submodule "movie-search-vuejs"]
+	path = movie-search-vuejs
+	url = https://github.com/RNCST/movie-search-vuejs.git
