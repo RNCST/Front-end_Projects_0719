@@ -23,8 +23,7 @@ class App extends Component {
 
   render() {
     console.log("App render");
-    let _title,
-      _desc = null;
+    let _title,_desc = null;
     if (this.state.mode === "welcome") {
       _title = this.state.welcome.title;
       _desc = this.state.welcome.desc;
