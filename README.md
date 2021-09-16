@@ -1,21 +1,67 @@
 # Front-end-Projects 🎲
 
-## Practice Front-end 
+## :ballot_box_with_check:  boiler-plate f
 
-### boiler-plate f
-react , mongoDB 
+<details>
+  <summary>CLICK TO SHOW DETAIL</summary>
+  <BR>
+  <div markdown="1">
 
-### hero-selector-vanilla f
-javascript 
+#### 📖 What I USE 
 
+- React
+- mongoDB
+    
+  </div>
+</details>
+
+---
+
+## :ballot_box_with_check: OverWatch hero-selector-vanilla
+
+<details>
+  <summary>CLICK TO SHOW DETAIL</summary>
+  <BR>
+  <div markdown="1">
+    
 [DEMO](https://rncst.github.io/hero-selector-vanilla/index.html)
 
-### react-basic ing
+[Repository](https://github.com/RNCST/hero-selector-vanilla)
 
-### starbucks-vanilla ing
-javascript gsap lodash
+#### 📖 What I USE 
+
+- HTML 
+- CSS 
+- JAVASCRIPT
+    
+  </div>
+</details>
+
+---
+
+## :ballot_box_with_check: starbucks-vanilla
+  
+  <details>
+  <summary>CLICK TO SHOW DETAIL</summary>
+  <BR>
+  <div markdown="1">
 
 [DEMO](https://rncst.github.io/starbucks-vanilla/)
 
-### movie-search-vuejs ing
-vuejs-3
+[Repository](https://github.com/RNCST/starbucks-vanilla)
+
+#### 📖 What I USE 
+
+- HTML 
+- CSS 
+- JAVASCRIPT 
+  - gsap (javascript animation library) [link](https://greensock.com/docs/v3/GSAP)
+  - lodash (javascript library (use .throttle)) [link](https://lodash.com/)
+  - swiper-js (Slider API) [link](https://swiperjs.com/swiper-api)
+
+    
+      </div>
+</details>
+    
+---
+
