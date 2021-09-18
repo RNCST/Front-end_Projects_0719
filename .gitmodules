@@ -7,3 +7,6 @@
 [submodule "movie-search-vuejs"]
 	path = movie-search-vuejs
 	url = https://github.com/RNCST/movie-search-vuejs.git
+[submodule "JS-mordern"]
+	path = JS-mordern
+	url = https://github.com/RNCST/JS-mordern.git
