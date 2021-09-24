@@ -13,3 +13,6 @@
 [submodule "parcel-template"]
 	path = parcel-template
 	url = https://github.com/RNCST/parcel-template.git
+[submodule "webpack-template"]
+	path = webpack-template
+	url = https://github.com/RNCST/webpack-template.git
