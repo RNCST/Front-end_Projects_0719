@@ -69,3 +69,22 @@
     
 ---
 
+
+## :ballot_box_with_check: Parcel-template
+
+<details>
+  <summary>CLICK TO SHOW DETAIL</summary>
+  <BR>
+  <div markdown="1">
+    
+#### 📖 What I USE 
+
+- parcel-bundler, parcel-plugin-static-files-copy  [link](https://ko.parceljs.org/)
+- autoprefixer, postcss [link](https://www.npmjs.com/package/autoprefixer)
+- Babel /core , plugin-transform-runtime , preset-env [link](https://babeljs.io/)
+    
+  </div>
+</details>
+
+---
+
