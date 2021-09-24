@@ -10,3 +10,6 @@
 [submodule "JS-mordern"]
 	path = JS-mordern
 	url = https://github.com/RNCST/JS-mordern.git
+[submodule "parcel-template"]
+	path = parcel-template
+	url = https://github.com/RNCST/parcel-template.git
