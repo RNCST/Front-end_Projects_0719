@@ -16,3 +16,6 @@
 [submodule "webpack-template"]
 	path = webpack-template
 	url = https://github.com/RNCST/webpack-template.git
+[submodule "vue3-webpack-template"]
+	path = vue3-webpack-template
+	url = https://github.com/RNCST/vue3-webpack-template.git
