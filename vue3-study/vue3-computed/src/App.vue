@@ -20,7 +20,17 @@
   <!-- :class="{ className: boolean }" -->
   <!-- true이면 class를 선언하고 false이면 선언한내용이 빠진다. -->
   <!-- https://v3.ko.vuejs.org/guide/class-and-style.html#html-%E1%84%8F%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A2%E1%84%89%E1%85%B3-%E1%84%87%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%83%E1%85%B5%E1%86%BC -->
+
+
+  <br /><br />
+
+  <h1
+    :style="[fontStyle, backgroundStyle]"
+    @click="changeStyle">
+    Hello Style
+  </h1>
 </template>
+
 
 <script>
 import Fruits from "~/components/Fruits";
@@ -33,6 +43,13 @@ export default {
       // Getter, Setter 읽기 쓰기 가능
       msg: "Hello Computed!",
       isActive: false,
+      fontStyle: {
+        color:'orange',
+        fontSize: '30px',
+      },
+      backgroundStyle: {
+        backgroundColor: 'black'
+      }
     };
   },
   methods: {
@@ -47,7 +64,11 @@ export default {
     },
     activate() {
       this.isActive = !this.isActive;
-      
+    },
+    changeStyle() {
+      this.fontStyle.color = 'red'
+      this.fontStyle.fontSize = '100px'
+
     }
   },
   computed:{
