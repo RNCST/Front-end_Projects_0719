@@ -1,0 +1,14 @@
+$color--black: #000;
+$color--white: #fff;
+
+body {
+  background-color: $color--black;
+
+  h1{
+    color: $color--white;
+    font-size: 40px;
+    display: flex;
+  }
+}
+// display: flex; 의 prefix(공급업체접두사)를 위해
+// npm i -D postcss autoprefixer postcss-loader 세개의 패키지를 설치한다. 
