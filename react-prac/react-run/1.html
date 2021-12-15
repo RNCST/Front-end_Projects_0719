@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <title>Static Template</title>
+</head>
+
+<body>
+   <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+   <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+   <div id="root"></div>
+   <script>
+      const rootElement = document.getElementById("root");
+      const vElement = document.createElement("h1");
+      const element = React.createElement("h1", { children: "Hello, react" });
+      vElement.textContent = "Hello js";
+      ReactDOM.render(element, rootElement);
+      rootElement.appendChild(vElement);
+   </script>
+</body>
+
+</html>

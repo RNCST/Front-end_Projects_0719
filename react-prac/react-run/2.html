@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <title>Static Template</title>
+</head>
+
+<body>
+   <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+   <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+   <script src="https://unpkg.com/@babel/standalone@7.16.6/babel.min.js"></script>
+   <div id="root"></div>
+   <div id="sp"></div>
+   <script type="text/babel">
+      const rootElement = document.getElementById("root");
+      const spElement = document.getElementById("sp")
+      const text = "hello jsx";
+      const text2 = "hello spread jsx";
+      const titleClassName = "title123";
+      const props = { className: titleClassName, children: text2 };
+      const customH1 = <h1 {...props} />;
+      // <h1 className={props.className} children={props.children}/>
+      const element = <h1 className={titleClassName} children={text} />;
+      ReactDOM.render(element, rootElement);
+      ReactDOM.render(customH1, spElement);
+   </script>
+</body>
+
+</html>
