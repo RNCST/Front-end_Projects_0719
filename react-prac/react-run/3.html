@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <title>Static Template</title>
+</head>
+
+<body>
+   <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+   <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+   <script src="https://unpkg.com/@babel/standalone@7.16.6/babel.min.js"></script>
+   <div id="root">
+      <!-- <h1></h1>
+      <h3></h3>
+      <h5></h5> -->
+   </div>
+   <div id="root2">
+
+   </div>
+   <script type="text/babel">
+      const rootElement = document.getElementById("root");
+      const rootElement2 = document.getElementById("root2");
+      const element =
+         <React.Fragment
+            children={[
+               React.createElement("h1", null, "Hi1"),
+               React.createElement("h3", null, "Hi2"),
+               React.createElement("h5", null, "Hi3"),
+               <h2>Hi</h2>
+            ]} />;
+      const element2 =
+         <>
+            <h1>Bye</h1>
+            <h5>Bye</h5>
+         </>
+      ReactDOM.render(element, rootElement);
+      ReactDOM.render(element2, rootElement2)
+      console.log(element);
+   </script>
+</body>
+
+</html>
+
+<!-- Fragment => React.Fragment or <> </> -->

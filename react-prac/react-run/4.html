@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <title>Static Template</title>
+</head>
+
+<body>
+   <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+   <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+   <script src="https://unpkg.com/@babel/standalone@7.16.6/babel.min.js"></script>
+   <div id="root"></div>
+
+   <script type="text/babel">
+      const rootElement = document.getElementById("root");
+      const Paint = ({ title, description, children }) => (
+         <>
+            <h1>{title}</h1>
+            <h3>{description}</h3>
+            {children}
+         </>
+      );
+
+      const Soso = () => <h3>soso???</h3>;
+
+      const element = (
+         <>
+            <Paint title="Good" description="good">
+               <h1>Hi</h1>
+            </Paint>
+            <Paint title="Bad" description="bad">
+               <Paint title="Bad2" description="bad2">
+               </Paint>
+            </Paint>
+            <Paint title="So so" description="so so" >
+               <Soso/>
+            </Paint>
+         </>
+      )
+      // <paint><= Custom Element, Upper case를 쓰지 않으면 html에 기본태그들과 섞여서 혼동될 수가 있다. 또한 Children을 쓰는데 제한이 없다.
+
+      ReactDOM.render(element, rootElement);
+      console.log(element)
+   </script>
+</body>
+
+</html>
