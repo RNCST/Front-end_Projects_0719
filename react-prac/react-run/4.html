@@ -13,34 +13,29 @@
 
    <script type="text/babel">
       const rootElement = document.getElementById("root");
-      const Paint = ({ title, description, children }) => (
-         <>
-            <h1>{title}</h1>
-            <h3>{description}</h3>
-            {children}
-         </>
-      );
 
-      const Soso = () => <h3>soso???</h3>;
+      const Text = ({ text }) => {
+         if (text.charAt(0) === text.charAt(0).toUpperCase()) {
+            return <h1>{text}</h1>;
+         } else {
+            return <h3>{text}</h3>;
+         }
+         return (
+            <>
+               <h1>{text}</h1>
+               <h2>{text}</h2>
+            </>
+         );
+      };
 
       const element = (
          <>
-            <Paint title="Good" description="good">
-               <h1>Hi</h1>
-            </Paint>
-            <Paint title="Bad" description="bad">
-               <Paint title="Bad2" description="bad2">
-               </Paint>
-            </Paint>
-            <Paint title="So so" description="so so" >
-               <Soso/>
-            </Paint>
+            <Text text="Text" />
+            <Text text="text" />
          </>
-      )
-      // <paint><= Custom Element, Upper case를 쓰지 않으면 html에 기본태그들과 섞여서 혼동될 수가 있다. 또한 Children을 쓰는데 제한이 없다.
+      );
 
       ReactDOM.render(element, rootElement);
-      console.log(element)
    </script>
 </body>
 
