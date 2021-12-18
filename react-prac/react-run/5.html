@@ -12,13 +12,14 @@
    <div id="root"></div>
    <script type="text/babel">
       //vanilla js => changed ==> rePaint element
-      //react  => changed ==> rePaint change thing
+      //react  => changed ==> rePaint change thing (re-rendering)
       const rootElement = document.getElementById("root");
       function random() {
          const number = Math.floor(Math.random() * (10 - 1) + 1);
          const element = (
             <>
                <button>{number}</button>
+               <button children={number}/>
                <p>{number}</p>
             </>
          );
@@ -37,5 +38,8 @@
       setInterval(random, 1000);
     </script> -->
 </body>
-
+<!-- Element는 불변성을 지닌다. reactDOM.rener(element,rootElement);로 우리가 전달 할 뿐이고 변경 판단이나 반영은 리액트가 알아서한다. -->
+<!-- https://ko.reactjs.org/docs/reconciliation.html#the-diffing-algorithm -->
+<!-- 엘리먼트 타입이 바뀌면 엘리먼트를 버리고 새로 그린다 
+타입이 같다면 key를 먼저 비교하고 key가 같다면 props를 비교해서 변경사항을 반영한다.(Virtual Dom을 사용 )  -->
 </html>
