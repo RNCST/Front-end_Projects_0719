@@ -23,10 +23,13 @@
          
          console.log("render");
 
-         React.userEffect(() => {
+         React.useEffect(() => {
+            console.log("effect");
             window.localStorage.setItem("keyword", keyword);
-         });
-         
+         }, []);
+         // 의도한 변화에 대한 부수효과를 낸다. keyword값이 바뀌었을때 로컬스토리지에 값이 떨어지도록. 
+         // useEffect 라는 Hook 제공.
+         // 두번째 매개변수 []를 이용해 대상설정가능. 설정 안하면 모든 반응에 반응하고 빈배열을 넣어놓으면 처음에만 동작한다. 
 
          function handleChange(e) {
             setKeyword(e.target.value);
