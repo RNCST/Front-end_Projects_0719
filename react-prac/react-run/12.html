@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <title>Static Template</title>
+</head>
+
+<body>
+   <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+   <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+   <script src="https://unpkg.com/@babel/standalone@7.16.6/babel.min.js"></script>
+   <div id="root"></div>
+   <script type="text/babel">
+      const rootElement = document.getElementById("root");
+
+      const Child = () => {
+         console.log("     Child render start");
+         const [text, setText] = React.useState(() => {
+            console.log("     Child useState");
+            return "";
+         });
+
+         React.useEffect(() => {
+            console.log("     Child use Effect, no deps");
+            return () => {
+               console.log("     Child useEffect [Cleanup], no deps");
+            }
+         });
+         React.useEffect(() => {
+            console.log("     Child use Effect, empty deps");
+            return () => {
+               console.log("     Child useEffect [Cleanup], empty deps");
+            }
+         }, []); // 처음 render에 반응
+
+         React.useEffect(() => {
+            console.log("     Child use Effect, [show]");
+            return () => {
+               console.log("     Child useEffect [Cleanup], [show]");
+            }
+         }, [text]); // 배열의 dependency에 반응.
+
+         function handleChange(e) {
+            setText(e.target.value);
+         }
+         const element = (
+            <>
+               <input onChange={handleChange} />
+               <p>{text}</p>
+            </>
+         )
+         console.log("     Child render end");
+         return element;
+      }
+
+      const App = () => {
+         console.log("APP RENDER START")
+         const [show, setShow] = React.useState(() => {
+            console.log("App useState");
+            return false;
+         });
+
+         React.useEffect(() => {
+            console.log("App use Effect, no deps");
+
+            return () => {
+               console.log("App useEffect [Cleanup], no deps");
+            }
+         }); // 모든것에 반응
+
+         React.useEffect(() => {
+            console.log("App useEffect, empty deps");
+            return () =>{
+               console.log("App useEffect [Cleanup], empty deps");
+            }
+         }, []); // 처음 render에 반응
+
+         React.useEffect(() => {
+            console.log("App useEffect, [show]");
+            return () => {
+               console.log("App useEffect [Cleanup], [show]");
+            }
+         }, [show]); // 배열의 dependency에 반응.
+
+         function handleClick() {
+            setShow((prev) => !prev);
+            // prev에 바로 직전의 state가 주입이 된다. 
+         }
+         console.log("APP RENDER END")
+         return (
+            <>
+               <button onClick={handleClick}>Search</button>
+               {show ? (<Child />) : null}
+            </>
+         )
+      };
+      ReactDOM.render(<App />, rootElement);
+   </script>
+</body>
+
+</html>
+
+<!-- 
+   Hook flow => Hook의 call 타이밍 
+   Child의 Use
+      useEffect = render가 끝난 뒤
+      update시 = useEffect clean up / useEffect
+      dependency array => 전달받은 값의 변화가 있는 경우에만 . 
+
+APP RENDER START
+App useState
+APP RENDER END
+App use Effect, no deps
+App useEffect, empty deps
+App useEffect, [show]
+최초
+
+APP RENDER START
+APP RENDER END
+   Child render start
+   Child useState
+   Child render end
+App useEffect [Cleanup], no deps
+App useEffect [Cleanup], [show]
+   Child use Effect, no deps
+   Child use Effect, empty deps
+   Child use Effect, [show]
+App use Effect, no deps
+App useEffect, [show]
+버튼호출시 (Child 호출)
+
+APP RENDER START
+APP RENDER END
+   Child useEffect [Cleanup], no deps
+   Child useEffect [Cleanup], empty deps
+   Child useEffect [Cleanup], [show]
+App useEffect [Cleanup], no deps
+App useEffect [Cleanup], [show]
+App use Effect, no deps
+App useEffect, [show]
+버튼 한번더 누를때 (Child 삭제 )
+-->
