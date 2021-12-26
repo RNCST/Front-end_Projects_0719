@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <title>Static Template</title>
+</head>
+
+<body>
+   <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+   <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+   <script src="https://unpkg.com/@babel/standalone@7.16.6/babel.min.js"></script>
+   <div id="root"></div>
+   <script type="text/babel">
+      const rootElement = document.getElementById("root");
+
+      function useLocalStorage(itemName, value = "") {
+         const [state, setState] = React.useState(
+            () => window.localStorage.getItem(itemName) || value
+         );
+         React.useEffect(() => {
+            window.localStorage.setItem(itemName, state);
+         }, [state]);
+
+         return [state, setState];
+      }
+      // 공통함수로 빼놓음.
+
+      const App = () => {
+         // const [keyword, setKeyword] = React.useState(window.localStorage.getItem("keyword")); // delay
+         const [keyword, setKeyword] = useLocalStorage("keyword");
+         const [result, setResult] = useLocalStorage("result");
+         const [typing, setTyping] = useLocalStorage("typing", false);
+
+         function handleChange(e) {
+            setKeyword(e.target.value);
+            setTyping(true);
+         }
+
+         function handleClick() {
+            setTyping(false);
+            setResult(`We find results of ${keyword}`);
+         }
+
+         return (
+            <>
+               <input onChange={handleChange} value={keyword} />
+               <button onClick={handleClick}>search</button>
+               <p>{typing ? `Looking for ${keyword}... ` : result}</p>
+            </>
+         );
+      };
+      ReactDOM.render(<App />, rootElement);
+   </script>
+</body>
+
+</html>
+
+<!-- 
+   side Effect - 부수효과 
+ -->
