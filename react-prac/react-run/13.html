@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <title>Static Template</title>
+</head>
+
+<body>
+   <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+   <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+   <script src="https://unpkg.com/@babel/standalone@7.16.6/babel.min.js"></script>
+   <div id="root"></div>
+   <script type="text/babel">
+      const rootElement = document.getElementById("root");
+
+      const App = () => {
+
+      };
+      ReactDOM.render(<App />, rootElement);
+   </script>
+</body>
+
+</html>
+
+<!-- 
+   Component는 Element의 집합.
+   useState 상태값을 관리해주는 훅
+   사이드 이펙트 => 부수 효과
+   useState => lazy initialize (ex local  )
+   useEffect => dependency array
+   반복 => 함수
+   훅들의 반복 => cusom Hook.
+   hook flow => hook들의 호출 타이밍.
+   useState => setState시 이전값(prev)가 자동으로 주입된다. 
+   useEffect => render가 끝난 뒤
+   update시 => useEffect clean up/ useEffect
+   dependency array => 전달받은 값의 변화가 있는 경우에만. 
+
+   
+ -->
