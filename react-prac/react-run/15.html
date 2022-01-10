@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <title>Static Template</title>
+</head>
+
+<body>
+   <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+   <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+   <script src="https://unpkg.com/@babel/standalone@7.16.6/babel.min.js"></script>
+   <div id="root"></div>
+   <script type="text/babel">
+      const rootElement = document.getElementById("root");
+      const App = () => {
+         const inputRef = React.useRef();
+         const divRef = React.useRef();
+         React.useEffect(() => {
+            inputRef.current.focus();
+            setTimeout(() => {
+               divRef.current.style.backgroundColor = 'pink';
+            }, 1000)
+         }, []);
+
+         return (
+            <>
+               <input ref={inputRef}/>
+               <div style={{ height: 100, width: 300, backgroundColor: "brown"}}/>
+            </>
+         );
+      };
+
+      ReactDOM.render(<App />, rootElement);
+   </script>
+</body>
+
+</html>
+
+<!-- 
+   Ref..
+   input Element가 있고 화면이 load되자마자 focus를 하려면.. 
+   vanilla에서는 ?.focus()
+   
+   ==> Element조작인데 왜 DOM 조작이라고 하는가? 
+   https://developer.mozilla.org/ko/docs/Web/API/Document
+
+   React. 
+   document.getElementById가 아닌 useRef/Ref라는 별도의 방법을 쓰는이유. 
+ -->
