@@ -1,0 +1,53 @@
+<html lang="en">
+
+<head>
+   <title>Static Template</title>
+</head>
+
+<body>
+   <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+   <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+   <script src="https://unpkg.com/@babel/standalone@7.16.6/babel.min.js"></script>
+   <div id="root"></div>
+   <script type="text/babel">
+      const rootElement = document.getElementById("root");
+      const App = () => {
+         const handleSubmit = (event) => {
+            event.preventDefault();
+
+            console.dir(event.target.elements);
+            alert(
+               `FirstName: ${event.target.elements.fname.value},
+              LastName : ${event.target.lname.value}
+              `
+            );
+         };
+         return (
+            <form onSubmit={handleSubmit}>
+               <label htmlFor="fname">First name:</label>
+               <br />
+               <input type="text" id="frame" name="fname" defaultValue="john" />
+               <br />
+               <label htmlFor="lname"> Last name:</label>
+               <br />
+               <input type="text" iod="lname" name="lname" defaultValue="Doe" />
+               <br />
+               <br />
+               <input type="submit" value="Submit" />
+            </form>
+         );
+      };
+
+      ReactDOM.render(<App />, rootElement);
+   </script>
+</body>
+
+</html>
+
+<!--  for => htmlFor -->
+<!-- value => defaultValue -->
+
+<!-- 
+   onSubmit => event.preventDefault()
+   event.target.elements => console.dir(element) =>
+ -->
