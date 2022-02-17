@@ -1,0 +1,60 @@
+<html lang="en">
+
+<head>
+   <title>Static Template</title>
+</head>
+
+<body>
+   <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+   <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+   <script src="https://unpkg.com/@babel/standalone@7.16.6/babel.min.js"></script>
+   <div id="root"></div>
+   <script type="text/babel">
+      const rootElement = document.getElementById("root");
+      const App = () => {
+         const [data, setData] = React.useState(null);
+         const [error, setError] = React.useState(null);
+         React.useEffect(() => {
+            fetch(
+               "https://raw.githubusercontent.com/techoi/raw-data-api/main/simple-api.json"
+            )
+               .then(function (res) {
+                  return res.json();
+               })
+               .then(function (myJson) {
+                  setData(myJson.data);
+               })
+               .catch((error) => {
+                  setError(error.message);
+               });
+         }, []);
+
+         if (error != null) {
+            return <p> {error}</p>;
+         }
+         if (data == null) {
+            return <p style={{ color: "red" }}> Loading....</p>;
+         }
+
+         return (
+            <div>
+               <p>People</p>
+               {data.people.map((person) => (
+                  <div>
+                     <span>name: {person.name}</span>
+                     <span> age: {person.age} </span>
+                  </div>
+               ))}
+            </div>
+         );
+      };
+      ReactDOM.render(<App />, rootElement);
+   </script>
+</body>
+
+</html>
+
+<!-- 
+  Fetch api => network
+  상황병 핸들링 => loading / data / error 
+ -->
