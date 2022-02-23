@@ -19,3 +19,6 @@
 [submodule "vue3-movieSearch-app"]
 	path = vue3-movieSearch-app
 	url = https://github.com/RNCST/vue3-movieSearch-app.git
+[submodule "react_basic"]
+	path = react_basic
+	url = https://github.com/RNCST/react_basic
